@@ -1,0 +1,56 @@
+"use client"
+
+import Link from "next/link"
+
+export function Header() {
+  return (
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="flex h-14 items-center justify-between">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
+              <svg 
+                className="w-4 h-4 text-background" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor" 
+                strokeWidth={2}
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" 
+                />
+              </svg>
+            </div>
+            <span className="font-semibold text-foreground">ColdCall AI</span>
+          </Link>
+          
+          <nav className="hidden sm:flex items-center gap-6 text-sm">
+            <Link 
+              href="#generator" 
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Generator
+            </Link>
+            <Link 
+              href="#features" 
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Features
+            </Link>
+          </nav>
+          
+          <div className="flex items-center gap-3">
+            <button className="hidden sm:inline-flex h-9 items-center justify-center rounded-lg border border-border bg-transparent px-4 text-sm font-medium text-foreground hover:bg-secondary transition-colors">
+              Sign In
+            </button>
+            <button className="h-9 items-center justify-center rounded-lg bg-foreground px-4 text-sm font-medium text-background hover:bg-foreground/90 transition-colors inline-flex">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+  )
+}
