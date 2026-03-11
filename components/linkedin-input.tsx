@@ -34,15 +34,15 @@ export function LinkedInInput({
         {/* Main input container */}
         <div 
           className={`
-            relative flex items-center gap-2 p-2 rounded-2xl border bg-card transition-all duration-200
-            ${isFocused ? "border-muted-foreground/40 shadow-lg shadow-background" : "border-border"}
+            relative flex items-center gap-3 p-2 rounded-2xl border bg-card transition-all duration-300
+            ${isFocused ? "border-blue-500/50 shadow-xl shadow-blue-500/10" : "border-border"}
             ${disabled ? "opacity-70" : ""}
           `}
         >
           {/* LinkedIn icon */}
-          <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#0A66C2] flex items-center justify-center ml-1">
+          <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center ml-1 shadow-lg shadow-[#0A66C2]/20">
             <svg 
-              className="w-5 h-5 text-white" 
+              className="w-6 h-6 text-white" 
               fill="currentColor" 
               viewBox="0 0 24 24"
             >
@@ -59,7 +59,7 @@ export function LinkedInInput({
             onBlur={() => setIsFocused(false)}
             placeholder="Paste LinkedIn profile URL..."
             disabled={disabled}
-            className="flex-1 h-10 bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none text-sm sm:text-base px-2"
+            className="flex-1 h-12 bg-transparent text-foreground placeholder:text-muted-foreground focus:outline-none text-base px-2"
           />
 
           {/* Generate button */}
@@ -67,16 +67,16 @@ export function LinkedInInput({
             type="submit"
             disabled={!isValidUrl || disabled}
             className={`
-              flex-shrink-0 h-10 px-5 rounded-xl font-medium text-sm transition-all duration-200 flex items-center gap-2
+              flex-shrink-0 h-12 px-6 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-2.5
               ${isValidUrl && !disabled 
-                ? "bg-foreground text-background hover:bg-foreground/90" 
+                ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02]" 
                 : "bg-muted text-muted-foreground cursor-not-allowed"
               }
             `}
           >
             {isLoading ? (
               <>
-                <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                 </svg>
@@ -84,7 +84,7 @@ export function LinkedInInput({
               </>
             ) : (
               <>
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
                 <span className="hidden sm:inline">Generate Script</span>
@@ -94,9 +94,9 @@ export function LinkedInInput({
         </div>
 
         {/* Helper text */}
-        <p className="mt-3 text-xs text-center text-muted-foreground">
+        <p className="mt-4 text-sm text-center text-muted-foreground">
           Enter a LinkedIn URL like{" "}
-          <code className="px-1.5 py-0.5 rounded bg-muted font-mono text-[11px]">
+          <code className="px-2 py-1 rounded-lg bg-accent border border-border font-mono text-xs text-foreground">
             linkedin.com/in/johndoe
           </code>
         </p>

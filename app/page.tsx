@@ -21,40 +21,63 @@ export default function HomePage() {
 function HeroSection() {
   return (
     <section className="relative overflow-hidden border-b border-border">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-muted/50 to-background" />
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/50 via-background to-background" />
+      
+      {/* Subtle glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full" />
       
       {/* Grid pattern overlay */}
       <div 
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
           backgroundImage: `
             linear-gradient(to right, currentColor 1px, transparent 1px),
             linear-gradient(to bottom, currentColor 1px, transparent 1px)
           `,
-          backgroundSize: '60px 60px'
+          backgroundSize: '64px 64px'
         }}
       />
       
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border text-xs font-medium text-muted-foreground mb-6">
+      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 py-24 sm:py-32 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent border border-border text-sm font-medium text-muted-foreground mb-8">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
           </span>
           AI-Powered Sales Intelligence
         </div>
         
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-foreground mb-6 text-balance">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6 text-balance leading-[1.1]">
           Turn LinkedIn Profiles into
           <br />
-          <span className="text-muted-foreground">Winning Cold Calls</span>
+          <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            Winning Cold Calls
+          </span>
         </h1>
         
-        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-4">
           Paste a LinkedIn URL and get a personalized, research-backed sales script 
           in seconds. Close more deals with AI-crafted outreach.
         </p>
+
+        {/* Stats */}
+        <div className="flex items-center justify-center gap-8 mt-12 pt-8 border-t border-border">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-foreground">3.2x</div>
+            <div className="text-sm text-muted-foreground">Higher Response Rate</div>
+          </div>
+          <div className="w-px h-10 bg-border" />
+          <div className="text-center">
+            <div className="text-2xl font-bold text-foreground">45s</div>
+            <div className="text-sm text-muted-foreground">Average Generation</div>
+          </div>
+          <div className="w-px h-10 bg-border hidden sm:block" />
+          <div className="text-center hidden sm:block">
+            <div className="text-2xl font-bold text-foreground">10K+</div>
+            <div className="text-sm text-muted-foreground">Scripts Generated</div>
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -101,13 +124,13 @@ function FeaturesSection() {
   ]
 
   return (
-    <section className="py-20 sm:py-28 border-t border-border">
+    <section id="features" className="py-24 sm:py-32 border-t border-border">
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mb-4">
             How It Works
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-xl mx-auto">
             Our AI researches your prospect and crafts messages that resonate with their specific situation.
           </p>
         </div>
@@ -116,12 +139,12 @@ function FeaturesSection() {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="group p-6 rounded-xl bg-card border border-border hover:border-muted-foreground/20 transition-colors"
+              className="group p-6 rounded-2xl bg-card border border-border hover:border-ring/30 hover:bg-accent/50 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-foreground mb-4 group-hover:bg-muted-foreground/10 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-accent border border-border flex items-center justify-center text-foreground mb-5 group-hover:border-ring/30 group-hover:bg-accent transition-all">
                 {feature.icon}
               </div>
-              <h3 className="font-medium text-foreground mb-2">{feature.title}</h3>
+              <h3 className="font-semibold text-foreground mb-2 text-lg">{feature.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
             </div>
           ))}
